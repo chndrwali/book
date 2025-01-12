@@ -41,11 +41,11 @@ export const adminSideBarLinks = [
 ];
 
 export const FIELD_NAMES = {
-  fullname: 'Full name',
+  fullName: 'Nama lengkap',
   email: 'Email',
-  universityId: 'University ID Number',
+  universityId: 'Nomor ID Universitas/NIM',
   password: 'Password',
-  universityCard: 'Upload University ID Card',
+  universityCard: 'Unggah Kartu Identitas Universitas',
 };
 
 export const FIELD_TYPES = {
