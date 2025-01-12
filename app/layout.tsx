@@ -18,8 +18,8 @@ const bebasNeue = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'BookWise',
-  description: 'BookWise adalah solusi manajemen perpustakaan universitas untuk peminjaman buku. ',
+  title: 'BukuKita',
+  description: 'BukuKita adalah solusi manajemen perpustakaan universitas untuk peminjaman buku. ',
 };
 
 const RootLayout = ({ children }: { children: ReactNode }) => {

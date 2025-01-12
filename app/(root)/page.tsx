@@ -1,9 +1,13 @@
-import { Button } from '@/components/ui/button';
+import BookList from '@/components/bookList';
+import BookOverview from '@/components/bookOverview';
+import { sampleBooks } from '@/constant';
 
 const Home = () => {
   return (
     <>
-      <Button>Test</Button>
+      <BookOverview {...sampleBooks[0]} />
+
+      <BookList title="Buku terbaru" books={sampleBooks} containerClassname="mt-20" />
     </>
   );
 };
