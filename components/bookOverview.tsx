@@ -28,7 +28,7 @@ const BookOverview = ({ title, author, genre, rating, totalCopies, availableCopi
           </p>
         </div>
         <p className="book-description">{description}</p>
-        <Button className="form-btn">
+        <Button className="book-overview_btn">
           <Image src="/icons/book.svg" alt="books" width={20} height={20} />
           <p className="font-bebas-neue text-xl text-dark-100">Pinjam</p>
         </Button>
