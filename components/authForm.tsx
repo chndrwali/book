@@ -9,6 +9,8 @@ import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { FIELD_NAMES, FIELD_TYPES } from '@/constant';
 import ImageUpload from './imageUpload';
+import { toast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
 
 interface Props<T extends FieldValues> {
   type: 'SIGN_IN' | 'SIGN_UP';
@@ -18,6 +20,7 @@ interface Props<T extends FieldValues> {
 }
 
 const AuthForm = <T extends FieldValues>({ type, schema, defaultValues, onSubmit }: Props<T>) => {
+  const router = useRouter();
   const isSignIn = type === 'SIGN_IN';
 
   const form: UseFormReturn<T> = useForm({
@@ -26,7 +29,21 @@ const AuthForm = <T extends FieldValues>({ type, schema, defaultValues, onSubmit
   });
 
   const handleSubmit: SubmitHandler<T> = async (data) => {
-    console.log(data);
+    const result = await onSubmit(data);
+
+    if (result.success) {
+      toast({
+        title: 'Berhasil',
+        description: isSignIn ? 'Anda telah berhasil masuk' : 'Anda telah berhasil daftar',
+      });
+      router.push('/');
+    } else {
+      toast({
+        title: `Error ${isSignIn ? 'masuk' : 'daftar'}`,
+        description: result.error ?? 'terjadi kesalahan',
+        variant: 'destructive',
+      });
+    }
   };
 
   return (
